@@ -6,7 +6,7 @@ description = 拦截 Blued 的广告接口，包括开屏广告和推荐页广�
 
 [Rule]
 # 拦截开屏广告（腾讯广告平台）
-URL-REGEX,^https:\/\/v2mi\.gdt\.qq\.com\/gdt_mview\.fcg,REJECT
+URL-REGEX,https?:\/\/[a-zA-Z0-9.-]+\/[^\s?#]*\.fcg(?:\?[^\s#]*)?,REJECT
 DOMAIN-SUFFIX,gdt.qq.com,REJECT
 
 # 拦截其他已知广告平台（可扩展）
