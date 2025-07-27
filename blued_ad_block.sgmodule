@@ -1,0 +1,21 @@
+[Module]
+name = Blued 广告拦截
+type = rule
+version = 1.0
+description = 拦截 Blued 的广告接口，包括开屏广告和推荐页广告
+
+[Rule]
+# 拦截开屏广告（腾讯广告平台）
+URL-REGEX,^https:\/\/v2mi\.gdt\.qq\.com\/gdt_mview\.fcg,REJECT-200
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+
+# 拦截其他已知广告平台（可扩展）
+DOMAIN-SUFFIX,adnet.qq.com,REJECT
+DOMAIN-SUFFIX,ads.tencent.com,REJECT
+
+# 可选：屏蔽第三方统计（极光、TalkingData 等）
+DOMAIN-SUFFIX,api.jpush.cn,REJECT
+DOMAIN-SUFFIX,tdsdk.com,REJECT
+
+[MITM]
+hostname = v2mi.gdt.qq.com, *.qq.com, *.jpush.cn, *.tdsdk.com
